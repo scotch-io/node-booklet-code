@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body class="container">
+
+    <header>
+        <% include ../partials/header %>
+    </header>
+
+    <main>
+        <% grams.forEach(function(gram) { %>
+        <div class="col-sm-3">
+            <div class="photo">
+                <img src="<%= gram.images.standard_resolution.url %>" class="img-responsive">
+            </div>
+        </div>
+        <% }); %>
+    </main>
+
+    <footer>
+        <% include ../partials/footer %>
+    </footer>
+    
+</body>
+</html>
