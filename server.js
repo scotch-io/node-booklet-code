@@ -27,17 +27,6 @@ instagram.use({
 
 // SET THE ROUTES
 // ===================================================
-// get user info
-app.post('/users/:username', function(req, res) {
-
-    // use the instagram package to get popular media
-    instagram.media_popular(function(err, medias, remaining, limit) {
-        // render the user page and pass in the users images
-        res.render('pages/user', { grams: medias });
-    });
-
-});
-
 // home page route - popular images
 app.get('/', function(req, res) {
 
