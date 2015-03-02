@@ -1,1 +1,38 @@
-body    { padding-top:50px; }
+body    { 
+	padding-top:50px; 
+}
+
+.instagram-pic     { 
+	position:relative; 
+	padding:10px;
+	overflow:hidden;
+}
+.instagram-pic img {
+	padding:5px;
+	border-radius:2px;
+	box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+}
+.instagram-bar     { 
+	position:absolute; 
+	bottom:30px; 
+	width:100%; 
+	left:0; 
+	padding-left:30px; 
+	padding-right:30px; 
+	color:#FFF;
+}
+
+.instagram-bar span   {
+	margin-right:5px;
+}
+.instagram-bar .likes {
+	float:left;
+}
+.instagram-bar .comments {
+	float:right; 
+}
+
+/* FOOTER */
+footer 	{
+	padding:50px; 
+}

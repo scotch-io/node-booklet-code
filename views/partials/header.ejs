@@ -1,6 +1,16 @@
-<nav>
-    <ul class="list-inline list-unstyled">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Things</a></li>
-    </ul>
+<nav class="navbar navbar-inverse">
+<div class="container-fluid">
+	<div class="navbar-header">
+		<a href="/" class="navbar-brand">
+			<span class="glyphicon glyphicon-picture"></span>
+			Popular Instagram Photos
+		</a>
+	</div>
+	<form class="navbar-form navbar-right" action="/users" method="POST">
+		<div class="form-group">
+			<input type="text" name="username" class="form-control" placeholder="Search for a Username">
+		</div>
+		<button type="submit" class="btn btn-default">Submit</button>
+	</form>
+</div>
 </nav>

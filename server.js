@@ -4,8 +4,6 @@ var express = require('express'),
     app = express(),
     bodyParser = require('body-parser'),
     instagram = require('instagram-node').instagram(),
-    instagramURL = 'https://api.instagram.com/v1/',
-    path = require('path'),
     port = process.env.PORT || 8080;
 
 // CONFIGURE THE APP
@@ -17,9 +15,9 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // configure body-parser which lets us grab POST data
-// -------------------------
-app.use(bodyParser.urlencoded({ extended: false })); // parse application/x-www-form-urlencoded
-app.use(bodyParser.json()); // parse application/json
+// parse application/x-www-form-urlencoded and application/json
+app.use(bodyParser.urlencoded({ extended: false })); 
+app.use(bodyParser.json());
 
 // configure instagram app with client-id
 instagram.use({ 
@@ -42,12 +40,13 @@ app.post('/users/:username', function(req, res) {
 
 // home page route - popular images
 app.get('/', function(req, res) {
-    // render the home page and pass in popular images
+
     // use the instagram package to get popular media
     instagram.media_popular(function(err, medias, remaining, limit) {
-        // render the user page and pass in the users images
+        // render the home page and pass in the popular images
         res.render('pages/index', { grams: medias });
     });
+
 });
 
 // START THE SERVER
