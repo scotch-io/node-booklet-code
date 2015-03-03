@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <% include ../partials/head %>
+	<% include ../partials/head %>
 </head>
 <body class="container">
 
-    <header>
-        <div class="jumbotron text-center">
-            This is a demo for a <a href="https://scotch.io">Scotch.io</a> tutorial.
-        </div>
-        <% include ../partials/header %>
-    </header>
+	<header>
+		<div class="jumbotron text-center">
+			This is a demo for a <a href="https://scotch.io">Scotch.io</a> tutorial.
+		</div>
+		<% include ../partials/header %>
+	</header>
 
-    <main>
-        <div class="row">
-        <% grams.forEach(function(gram) { %>
-        <div class="instagram-pic col-sm-3">
+	<main>
+		<div class="row">
+		<% grams.forEach(function(gram) { %>
+		<div class="instagram-pic col-sm-3">
 
-            <a href="<%= gram.link %>" target="_blank">
-                <img src="<%= gram.images.standard_resolution.url %>" class="img-responsive">
-            </a>
+			<a href="<%= gram.link %>" target="_blank">
+				<img src="<%= gram.images.standard_resolution.url %>" class="img-responsive">
+			</a>
 
-            <div class="instagram-bar">
-              <div class="likes">
-                <span class="glyphicon glyphicon-heart"></span> <%= gram.likes.count %>
-              </div>
-              
-              <div class="comments">
-                <span class="glyphicon glyphicon-comment"></span> <%= gram.comments.count %>
-              </div>
-            </div>
+			<div class="instagram-bar">
+				<div class="likes">
+					<span class="glyphicon glyphicon-heart"></span> <%= gram.likes.count %>
+				</div>
 
-        </div>
-        <% }); %>
-        </div>
-    </main>
+				<div class="comments">
+					<span class="glyphicon glyphicon-comment"></span> <%= gram.comments.count %>
+				</div>
+			</div>
 
-    <footer>
-        <% include ../partials/footer %>
-    </footer>
-    
+		</div>
+		<% }); %>
+		</div>
+	</main>
+
+	<footer>
+		<% include ../partials/footer %>
+	</footer>
+	
 </body>
 </html>

@@ -1,10 +1,8 @@
 // GRAB THE PACKAGES/VARIABLES WE NEED
 // ==================================================
-var express = require('express'),
-    app = express(),
-    bodyParser = require('body-parser'),
-    instagram = require('instagram-node').instagram(),
-    port = process.env.PORT || 8080;
+var express = require('express');
+var app     = express();
+var ig      = require('instagram-node').instagram();
 
 // CONFIGURE THE APP
 // ==================================================
@@ -14,13 +12,8 @@ app.use(express.static(__dirname + '/public'));
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
-// configure body-parser which lets us grab POST data
-// parse application/x-www-form-urlencoded and application/json
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
-
-// configure instagram app with client-id
-instagram.use({ 
+// configure instagram app with client_id
+ig.use({ 
     client_id: 'e0e51c60672c4f09abe28c46c71a3a7a',
     client_secret: 'db11c575a8ae4f1aa90a03ba1d1345d8' 
 });
@@ -31,7 +24,7 @@ instagram.use({
 app.get('/', function(req, res) {
 
     // use the instagram package to get popular media
-    instagram.media_popular(function(err, medias, remaining, limit) {
+    ig.media_popular(function(err, medias, remaining, limit) {
         // render the home page and pass in the popular images
         res.render('pages/index', { grams: medias });
     });
@@ -40,5 +33,5 @@ app.get('/', function(req, res) {
 
 // START THE SERVER
 // ==================================================
-app.listen(port);
-console.log('App started! Look at http://localhost:' + port);
+app.listen(8080);
+console.log('App started! Look at http://localhost:8080');
