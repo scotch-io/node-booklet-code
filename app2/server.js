@@ -7,7 +7,7 @@ var app = express();
 // create an express route for the home page
 // http://localhost:8080/
 app.get('/', function(req, res) {
-    res.sendfile('index.html');
+    res.sendFile(__dirname + '/index.html');
 });
 
 // start the server on port 8080
