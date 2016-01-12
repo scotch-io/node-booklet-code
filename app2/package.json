@@ -3,5 +3,10 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.12.1"
-  }
+  },
+  "repository": {
+	  "type": "git",
+	  "url": "git@github.com:scotch-io/node-booklet-code.git"
+  },
+  "license": "MIT"
 }
