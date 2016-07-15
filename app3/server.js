@@ -13,11 +13,9 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 
 // configure instagram app with client_id
-ig.use({ 
+ig.use({
     // get access token here: http://instagram.pixelunion.net/
     access_token: 'YOUR_ACCESS_TOKEN',
-    client_id: 'e0e51c60672c4f09abe28c46c71a3a7a',
-    client_secret: 'db11c575a8ae4f1aa90a03ba1d1345d8' 
 });
 
 // SET THE ROUTES
@@ -26,8 +24,9 @@ ig.use({
 app.get('/', function(req, res) {
 
     // use the instagram package to get popular media
-    ig.media_popular(function(err, medias, remaining, limit) {
+    ig.user_self_media_recent(function(err, medias, pagination, remaining, limit) {
         // render the home page and pass in the popular images
+
         res.render('pages/index', { grams: medias });
     });
 
